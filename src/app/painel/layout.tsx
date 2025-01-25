@@ -7,11 +7,11 @@ export default function Layout({
   children: React.ReactNode
 }>) {
   return (
-      <div className={`flex items-start justify-between w-full`}>
-        <Sidebar />
-        <main className='w-full h-full ml-60'>
-          {children}
-        </main>
-      </div>
+    <div className={`flex items-start justify-between w-full`}>
+      <Sidebar />
+      <main className='w-full h-full ml-60'>
+        {children}
+      </main>
+    </div>
   )
 }

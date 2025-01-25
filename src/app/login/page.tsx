@@ -1,7 +1,6 @@
 'use client'
 
 import { destroyCookie } from 'nookies'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
@@ -31,6 +30,7 @@ export default function LoginPage() {
   useEffect(
     () => {
       destroyCookie(null, SESSION_COOKIE_NAME)
+      localStorage.removeItem('notFirstRender')
     }, []
   )
 
@@ -73,6 +73,8 @@ export default function LoginPage() {
 
       toast({ description: 'Login realizado com sucesso!' })
 
+      localStorage.setItem('notFirstRender', 'false')
+
       push('/painel/associados')
     } catch (error: any) {
       toast({
@@ -92,7 +94,7 @@ export default function LoginPage() {
         <CardDescription>Faça login para entrar no painel.</CardDescription>
       </CardHeader>
 
-      <form onSubmit={loginForm.handleSubmit((data) => submitLogin(data))}>
+      <form onSubmit={loginForm.handleSubmit(async (data) => await submitLogin(data))}>
         <CardContent>
           <div className="grid w-full items-center gap-4">
 

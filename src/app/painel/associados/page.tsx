@@ -51,6 +51,19 @@ import { useToast } from '@/components/ui/use-toast'
 import { useAuth } from '@/contexts/AuthContext'
 
 export default function MembersPage() {
+  // --------------------------- WORKAROUND - DO NOT REMOVE ---------------------------
+  // this guarantees that the last user token will never be used in request from new user login
+  // when page reloads, the httpClient instance updates it's headers with the new user token
+  useEffect(() => {
+    const notFirstRender = localStorage.getItem('notFirstRender')
+
+    if (notFirstRender !== 'true') {
+      localStorage.setItem('notFirstRender', 'true')
+      window.location.reload()
+    }
+  }, [])
+
+
   // --------------------------- PAGE SETUP ---------------------------
   const { push } = useRouter()
   const { toast } = useToast()

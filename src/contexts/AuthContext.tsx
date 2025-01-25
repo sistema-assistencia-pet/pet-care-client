@@ -49,7 +49,6 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
     setUser(response.data.user)
 
     const accessToken = response.headers['access-token']
-
     if (accessToken) {
       await createSession(accessToken, response.data.user)
 

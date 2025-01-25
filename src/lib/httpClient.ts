@@ -20,6 +20,7 @@ if (userStringfied) {
   const user = JSON.parse(userStringfied) as UserLogged & { accessToken: string }
 
   httpClient.interceptors.request.use((request) => {
+    request.headers['Cache-Control'] = 'no-store'
     request.headers['Authorization'] = `Bearer ${user.accessToken}`
     return request
   })
