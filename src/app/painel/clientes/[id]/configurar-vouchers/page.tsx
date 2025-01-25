@@ -453,6 +453,7 @@ export default function SetupVouchersPage() {
     })
 
     fetchVouchers()
+    fetchClient(params.id as string)
     setVoucherConfigurationBeingUpdatedId(null)
     setIsVoucherConfigurationDialogOpen(false)
   }
@@ -488,6 +489,7 @@ export default function SetupVouchersPage() {
     })
 
     fetchVouchers()
+    fetchClient(params.id as string)
     setVoucherConfigurationBeingDeletedId(null)
     setIsRemoveVoucherConfigurationDialogOpen(false)
   }
