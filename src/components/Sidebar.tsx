@@ -35,16 +35,16 @@ export default function Sidebar() {
         <UserCard />
         <Command>
           <CommandList>
-              {
-                commandListItems.map((commandItem) => !(user?.roleId === ROLE.CLIENT_ADMIN && commandItem.onlyMaster) && (
-                  <Link href={commandItem.link} key={uuid()} passHref={true}>
-                    <CommandItem className={`mb-4 pl-4 gap-4 ${pathname.includes(commandItem.link) && 'bg-accent'}`}>
-                      {commandItem.icon}
-                      {commandItem.name}
-                    </CommandItem>
-                  </Link>
-                ))
-              }
+            {
+              commandListItems.map((commandItem) => !(user?.roleId === ROLE.CLIENT_ADMIN && commandItem.onlyMaster) && (
+                <Link href={commandItem.link} key={uuid()} passHref={true}>
+                  <CommandItem className={`mb-4 pl-4 gap-4 ${pathname.includes(commandItem.link) && 'bg-accent'}`}>
+                    {commandItem.icon}
+                    {commandItem.name}
+                  </CommandItem>
+                </Link>
+              ))
+            }
           </CommandList>
         </Command>
       </nav>
