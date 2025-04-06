@@ -21,7 +21,7 @@ import { removeCpfMask } from '@/lib/utils'
 import { sendRequest } from '@/lib/sendRequest'
 import { useAuth } from '@/contexts/AuthContext'
 import { useToast } from "@/components/ui/use-toast"
-import { TicketPercent } from 'lucide-react'
+import { PawPrint } from 'lucide-react'
 
 export default function LoginPage() {
   // ------------------ Destroy session cookie on login page load ------------------
@@ -89,8 +89,8 @@ export default function LoginPage() {
   const renderLogin = () => (
     <Card className="w-80">
       <CardHeader className="flex flex-col justify-center text-center items-center">
-        <TicketPercent color="#881ded" size={128}/>
-        <span className="text-center text-2xl font-bold text-primary mb-4">Exclusive Pass</span>
+        <PawPrint color="#4f1381" size={128}/>
+        <span className="text-center text-2xl font-bold text-secondary mb-4">Pet Care</span>
         <CardDescription>Faça login para entrar no painel.</CardDescription>
       </CardHeader>
 
@@ -172,7 +172,7 @@ export default function LoginPage() {
   const renderRequestResetPassword = () => (
     <Card className="w-80">
       <CardHeader className="flex flex-col justify-center items-center text-center">
-        <TicketPercent color="#881ded" size={128}/>
+        <PawPrint color="#4f1381" size={128}/>
         <CardDescription>Digite o CPF para requisitar uma nova senha.</CardDescription>
       </CardHeader>
 
@@ -261,7 +261,7 @@ export default function LoginPage() {
   const renderResetPassword = () => (
     <Card className="w-80">
       <CardHeader className="flex flex-col justify-center items-center text-center">
-        <TicketPercent color="#881ded" size={128}/>
+        <PawPrint color="#4f1381" size={128}/>
         <CardDescription>Insira o Código de Redefinição e crie uma nova Senha.</CardDescription>
       </CardHeader>
 

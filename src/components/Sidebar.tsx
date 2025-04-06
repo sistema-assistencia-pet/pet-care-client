@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { v4 as uuid } from 'uuid'
@@ -10,7 +9,7 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/command"
-import { Handshake, Map, Settings2, Store, Users, CircleUserRound, TicketCheck, TicketPercent } from 'lucide-react'
+import { Handshake, Map, Settings2, Store, Users, CircleUserRound, TicketCheck, TicketPercent, PawPrint, PawPrintIcon, LucidePawPrint } from 'lucide-react'
 import UserCard from './UserCard'
 import { useAuth } from '@/contexts/AuthContext'
 import { ROLE } from '@/lib/enums'
@@ -49,9 +48,9 @@ export default function Sidebar() {
         </Command>
       </nav>
 
-      <span className="text-center text-2xl font-bold text-primary">Exclusive Pass</span>
+      <span className="text-center text-2xl font-bold text-secondary mb-4">Pet Care</span>
 
-      <TicketPercent className="self-center" color="#881ded" size={128}/>
+      <PawPrint className="self-center" color="#4f1381" size={96}/>
     </aside>
   )
 }
