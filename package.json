@@ -1,6 +1,7 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "pet-care-client",
+  "version": "1.0.0",
+  "description": "Pet Care management admin panel",
   "private": true,
   "scripts": {
     "dev": "next dev",
