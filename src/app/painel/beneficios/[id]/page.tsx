@@ -22,6 +22,7 @@ import {
   captalize,
   formatDateTime,
   leaveOnlyDigits,
+  removeCpfMask,
   transformCurrencyFromCentsToBRLString
 } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -260,6 +261,36 @@ export default function VoucherDetailsPage() {
     fetchVoucher(id)
   }
 
+
+  // --------------------------- REDEEM VOUCHER ---------------------------
+  const [memberCpfToRedeemVoucherTo, setMemberCpfToRedeemVoucherTo] = useState<string>('')
+
+  const redeemVoucher = async (id: string) => {
+    const response = await sendRequest<{ voucherCode: string }>({
+      endpoint: `/voucher/${id}/redeem-by-master`,
+      method: 'POST',
+      data: {
+        cpf: memberCpfToRedeemVoucherTo
+      }
+    })
+
+    if (response.error) {
+      toast({
+        description: response.message,
+        variant: 'destructive'
+      })
+
+      return
+    }
+
+    toast({
+      description: response.message,
+      variant: "success"
+    })
+
+    window.alert(`Anote o código de cortesia: ${response.data.voucherCode}`)
+  }
+
   // --------------------------- USE EFFECT ---------------------------
   // Busca dados do benefício quando a página carrega
   useEffect(() => {
@@ -282,12 +313,16 @@ export default function VoucherDetailsPage() {
                     <AlertDialogTrigger className='uppercase px-8 h-9 text-sm font-medium rounded-md bg-primary shadow-sm hover:opacity-95 text-white w-96'>Gerar Código Cortesia</AlertDialogTrigger>
                     <AlertDialogContent>
                       <AlertDialogHeader>
-                        <AlertDialogTitle>Gerar Código Cortesia?</AlertDialogTitle>
-                        
+                        <AlertDialogTitle>Gerar Código Cortesia para esse voucher?</AlertDialogTitle>
+                        <Input
+                          onChange={({ target }) => setMemberCpfToRedeemVoucherTo(removeCpfMask(target.value ?? ''))}
+                          placeholder='CPF do associado'
+                          value={memberCpfToRedeemVoucherTo}
+                        />
                       </AlertDialogHeader>
                       <AlertDialogFooter>
-                        <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                        <Button onClick={() => inactivateVoucher(voucher.id)}>
+                        <AlertDialogCancel onClick={() => setMemberCpfToRedeemVoucherTo('')}>Fechar</AlertDialogCancel>
+                        <Button onClick={() => redeemVoucher(voucher.id)}>
                           Gerar
                         </Button>
                       </AlertDialogFooter>
