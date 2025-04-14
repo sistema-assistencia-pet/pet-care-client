@@ -405,7 +405,7 @@ export default function MembersPage() {
                         disabled={clientIdSelected === ''}
                         onClick={() => push(`/painel/clientes/${clientIdSelected}/cadastrar-associado`)}
                         type="button"
-                        variant="secondary"
+                        variant="outline"
                       >
                         Cadastrar um associado
                       </Button>

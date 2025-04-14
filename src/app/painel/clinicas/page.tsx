@@ -98,7 +98,7 @@ export default function PartnersPage() {
       cell: ({ row: { original: { id } } }) => (
         <Button
           className=''
-          onClick={() => push(`/painel/estabelecimentos/${id}`)}
+          onClick={() => push(`/painel/clinicas/${id}`)}
           size="icon"
           title="Visualizar Detalhes"
           variant="outline"
@@ -318,12 +318,12 @@ export default function PartnersPage() {
   // --------------------------- RETURN ---------------------------
   return (
     <DashboardLayout
-      secondaryText={`Total: ${partnersCount} estabelecimentos`}
-      title="Estabelecimentos"
+      secondaryText={`Total: ${partnersCount} clínicas`}
+      title="Clínicas"
     >
       <div className='flex flex-row'>
-        <Button type="button" onClick={() => push('/painel/estabelecimentos/cadastrar-estabelecimento')}>
-          Cadastrar estabelecimento
+        <Button type="button" onClick={() => push('/painel/clinicas/cadastrar-clinica')}>
+          Cadastrar clínica
         </Button>
       </div>
 

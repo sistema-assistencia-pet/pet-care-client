@@ -595,7 +595,7 @@ export default function PartnerDetailsPage() {
     if (logoFileSelected !== null) sendLogoFile(logoFileSelected, params.id as string)
   } , [logoFileSelected])
 
-  // Busca dados do estabelecimento quando a página carrega
+  // Busca dados da clínica quando a página carrega
   useEffect(() => {
     if (params.id) fetchPartner(params.id as string)
   } , [params.id])
@@ -671,10 +671,10 @@ export default function PartnerDetailsPage() {
                   <AlertDialogHeader>
                     <AlertDialogTitle>Confirmar inativação?</AlertDialogTitle>
                     <AlertDialogDescription>
-                      Todos os vouchers do estabelecimento também serão inativados!
+                      Todos os benefícios da clínica também serão inativados!
                     </AlertDialogDescription>
                     <AlertDialogDescription>
-                      Depois disso, <strong className='text-black'>não</strong> será possível ativar apenas os vouchers que já eram ativos antes dessa ação, será necessário reinativar todos.
+                      Depois disso, <strong className='text-black'>não</strong> será possível ativar apenas os benefícios que já eram ativos antes dessa ação, será necessário reinativar todos.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
@@ -697,10 +697,10 @@ export default function PartnerDetailsPage() {
                   <AlertDialogHeader>
                     <AlertDialogTitle>Confirmar ativação?</AlertDialogTitle>
                     <AlertDialogDescription>
-                      Todos os benefícios do estabelecimento também serão ativados!
+                      Todos os benefícios da clínica também serão ativados!
                     </AlertDialogDescription>
                     <AlertDialogDescription>
-                      Depois disso, <strong className='text-black'>não</strong> será possível inativar apenas os vouchers que já eram inativos antes dessa ação, será necessário reativar todos.
+                      Depois disso, <strong className='text-black'>não</strong> será possível inativar apenas os benefícios que já eram inativos antes dessa ação, será necessário reativar todos.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
@@ -723,7 +723,7 @@ export default function PartnerDetailsPage() {
                   <Pencil  className='mx-auto'/>
                 </AlertDialogTrigger>
                 <AlertDialogContent className='max-h-screen overflow-y-auto max-w-[80%]'>
-                  <AlertDialogTitle>Editar estabelecimento</AlertDialogTitle>
+                  <AlertDialogTitle>Editar clínica</AlertDialogTitle>
                   <Form { ...updatePartnerForm }>
                     <form
                       className='flex flex-col gap-4'
@@ -1070,7 +1070,7 @@ export default function PartnerDetailsPage() {
                   <AlertDialogHeader>
                     <AlertDialogTitle>Confirmar exclusão?</AlertDialogTitle>
                     <AlertDialogDescription>
-                      Todos os vouchers do estabelecimento também serão excluídos!
+                      Todos os benefícios da clínica também serão excluídos!
                     </AlertDialogDescription>
                     <AlertDialogDescription>
                       A operação <strong className='text-black'>não</strong> poderá ser desfeita!

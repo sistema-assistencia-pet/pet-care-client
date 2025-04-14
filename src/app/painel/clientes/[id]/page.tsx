@@ -594,9 +594,9 @@ export default function ClientDetailsPage() {
         {/* Setup Vouchers */}
         <Button
           disabled={client?.status.id !== STATUS.Ativo}
-          onClick={() => push(`/painel/clientes/${params.id}/configurar-vouchers`)}
+          onClick={() => push(`/painel/clientes/${params.id}/configurar-beneficios`)}
         >
-          Configurar Vouchers
+          Configurar Benefícios
         </Button>
 
         {/* Recharge Balance */}
@@ -604,7 +604,7 @@ export default function ClientDetailsPage() {
           client
           && (
             <AlertDialog>
-              <AlertDialogTrigger title='Editar' className='uppercase shadow hover:bg-secondary/90 leading-9 rounded-md px-8 cursor-pointer bg-secondary text-sm font-medium'>
+              <AlertDialogTrigger title='Editar' className='uppercase shadow hover:bg-outline/90 leading-9 rounded-md px-8 cursor-pointer bg-outline text-sm font-medium'>
                 Recarregar Saldo
               </AlertDialogTrigger>
               <AlertDialogContent className='max-h-screen overflow-y-auto max-w-[50%]'>
@@ -708,7 +708,7 @@ export default function ClientDetailsPage() {
           client
           && (
             <AlertDialog>
-              <AlertDialogTrigger title='Editar' className='uppercase shadow hover:bg-secondary/90 leading-9 rounded-md px-8 cursor-pointer bg-secondary text-sm font-medium'>
+              <AlertDialogTrigger title='Editar' className='uppercase shadow hover:bg-outline/90 leading-9 rounded-md px-8 cursor-pointer bg-outline text-sm font-medium'>
                 Distribuir Saldo
               </AlertDialogTrigger>
               <AlertDialogContent className='max-h-screen overflow-y-auto max-w-[50%]'>
@@ -819,7 +819,7 @@ export default function ClientDetailsPage() {
           <Button
             disabled={client?.status.id !== STATUS.Ativo}
             onClick={() => push(`/painel/clientes/${params.id}/cadastrar-associado`)}
-            variant="secondary"
+            variant="outline"
           >
             Cadastrar Um Associado
           </Button>

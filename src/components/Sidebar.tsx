@@ -9,7 +9,7 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/command"
-import { Handshake, Map, Settings2, Store, Users, CircleUserRound, TicketCheck, TicketPercent, PawPrint, PawPrintIcon, LucidePawPrint } from 'lucide-react'
+import { Handshake, Map, Settings2, Users, CircleUserRound, PawPrint, Gift, HeartPulse } from 'lucide-react'
 import UserCard from './UserCard'
 import { useAuth } from '@/contexts/AuthContext'
 import { ROLE } from '@/lib/enums'
@@ -21,8 +21,8 @@ export default function Sidebar() {
   const commandListItems = [
     { name: 'Associados', link: '/painel/associados', icon: <Users />, onlyMaster: false },
     { name: 'Clientes', link: '/painel/clientes', icon: <Handshake />, onlyMaster: true },
-    { name: 'Estabelecimentos', link: '/painel/estabelecimentos', icon: <Store />, onlyMaster: true },
-    { name: 'Vouchers', link: '/painel/vouchers', icon: <TicketCheck />, onlyMaster: false },
+    { name: 'Clínicas', link: '/painel/clinicas', icon: <HeartPulse />, onlyMaster: true },
+    { name: 'Benefícios', link: '/painel/beneficios', icon: <Gift />, onlyMaster: false },
     { name: 'Categorias', link: '/painel/categorias', icon: <Settings2 />, onlyMaster: true },
     { name: 'Cidades', link: '/painel/cidades', icon: <Map />, onlyMaster: true },
     { name: 'Usuários', link: '/painel/usuarios', icon: <CircleUserRound />, onlyMaster: false }

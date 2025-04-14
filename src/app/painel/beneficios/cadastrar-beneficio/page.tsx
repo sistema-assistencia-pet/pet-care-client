@@ -51,8 +51,8 @@ export default function RegisterVoucher() {
       .string({ required_error: 'O campo Regras é obrigatório.' })
       .optional(),
     partnerId: z
-      .string({ required_error: 'O campo Estabelecimento é obrigatório.' })
-      .uuid({ message: 'O campo Estabelecimento é obrigatório.' }),
+      .string({ required_error: 'O campo Clínica é obrigatório.' })
+      .uuid({ message: 'O campo Clínica é obrigatório.' }),
     value: z
       .string({ required_error: 'O campo Valor é obrigatório.' })
       .min(1, { message: 'O campo Valor é obrigatório.' })
@@ -165,14 +165,14 @@ export default function RegisterVoucher() {
     }
 
   // --------------------------- USE EFFECT ---------------------------
-  // Carrega lista de estabelecimentos quando a página carrega
+  // Carrega lista de clínicas quando a página carrega
   useEffect(() => {
     fetchPartners()
   }, [])
 
   // --------------------------- RETURN ---------------------------
   return (
-    <DashboardLayout title="Cadastrar Novo Voucher">
+    <DashboardLayout title="Cadastrar Novo Benefício">
       <Form { ...createVoucherForm }>
         <form
           className='flex flex-col my-4 gap-4'
@@ -180,7 +180,7 @@ export default function RegisterVoucher() {
         >
           <DetailsRow>
             <InputContainer size="w-1/3">
-              <Label htmlFor="partnerId">Estabelecimento</Label>
+              <Label htmlFor="partnerId">Clínica</Label>
               <FormField
                 control={createVoucherForm.control}
                 name="partnerId"
@@ -260,7 +260,7 @@ export default function RegisterVoucher() {
           </DetailsRow>
 
           <Button className="my-4" disabled={!createVoucherForm.formState.isValid} type='submit'>
-            Cadastrar voucher
+            Cadastrar benefício
           </Button>
         </form>
       </Form>

@@ -432,7 +432,7 @@ export default function RegisterPartner() {
 
   // --------------------------- RETURN ---------------------------
   return (
-    <DashboardLayout title="Cadastrar Novo Estabelecimento">
+    <DashboardLayout title="Cadastrar Nova Clínica">
       <Form { ...createPartnerForm }>
         <form
           className='flex flex-col my-4 gap-4'
@@ -751,7 +751,7 @@ export default function RegisterPartner() {
           </DetailsRow>
 
           <Button className="my-4" disabled={!createPartnerForm.formState.isValid} type='submit'>
-            Cadastrar estabelecimento
+            Cadastrar clínica
           </Button>
         </form>
       </Form>

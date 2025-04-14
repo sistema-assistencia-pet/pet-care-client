@@ -261,7 +261,7 @@ export default function VoucherDetailsPage() {
   }
 
   // --------------------------- USE EFFECT ---------------------------
-  // Busca dados do voucher quando a página carrega
+  // Busca dados do benefício quando a página carrega
   useEffect(() => {
     if (params.id) fetchVoucher(params.id as string)
   } , [params.id])
@@ -275,9 +275,26 @@ export default function VoucherDetailsPage() {
       {
         user?.roleId === ROLE.MASTER && (
           <div className="flex justify-between w-full">
-            <Button type="button" onClick={() => push(`/painel/vouchers/${params.id}/codigos`)}>
-              Visualizar Códigos
-            </Button>
+            {/* Redeem Voucher */}
+            {
+                voucher?.status?.id === STATUS.Ativo && (
+                  <AlertDialog>
+                    <AlertDialogTrigger className='uppercase px-8 h-9 text-sm font-medium rounded-md bg-primary shadow-sm hover:opacity-95 text-white w-96'>Gerar Código Cortesia</AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Gerar Código Cortesia?</AlertDialogTitle>
+                        
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                        <Button onClick={() => inactivateVoucher(voucher.id)}>
+                          Gerar
+                        </Button>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                )
+              }
             <div className="flex gap-4 justify-end w-full">
 
               {/* Inactivate Voucher */}
@@ -288,9 +305,6 @@ export default function VoucherDetailsPage() {
                     <AlertDialogContent>
                       <AlertDialogHeader>
                         <AlertDialogTitle>Confirmar inativação?</AlertDialogTitle>
-                        <AlertDialogDescription>
-                          Todos os benefícios do voucher também serão inativados!
-                        </AlertDialogDescription>
                         <AlertDialogDescription>
                           Essa ação poderá ser desfeita.
                         </AlertDialogDescription>
@@ -315,9 +329,6 @@ export default function VoucherDetailsPage() {
                       <AlertDialogHeader>
                         <AlertDialogTitle>Confirmar ativação?</AlertDialogTitle>
                         <AlertDialogDescription>
-                          Todos os benefícios do voucher também serão ativados!
-                        </AlertDialogDescription>
-                        <AlertDialogDescription>
                           Essa ação poderá ser desfeita.
                         </AlertDialogDescription>
                       </AlertDialogHeader>
@@ -341,7 +352,7 @@ export default function VoucherDetailsPage() {
                       <Pencil  className='mx-auto'/>
                     </AlertDialogTrigger>
                     <AlertDialogContent className='max-h-screen overflow-y-auto max-w-[80%]'>
-                      <AlertDialogTitle>Editar voucher</AlertDialogTitle>
+                      <AlertDialogTitle>Editar benefício</AlertDialogTitle>
                       <Form { ...updateVoucherForm }>
                         <form
                           className='flex flex-col gap-4'
@@ -422,9 +433,6 @@ export default function VoucherDetailsPage() {
                       <AlertDialogHeader>
                         <AlertDialogTitle>Confirmar exclusão?</AlertDialogTitle>
                         <AlertDialogDescription>
-                          Todos os benefícios do voucher também serão excluídos!
-                        </AlertDialogDescription>
-                        <AlertDialogDescription>
                           A operação <strong className='text-black'>não</strong> poderá ser desfeita!
                         </AlertDialogDescription>
                       </AlertDialogHeader>
@@ -464,8 +472,8 @@ export default function VoucherDetailsPage() {
         <Separator />
 
         <DetailsRow>
-          <DetailsField label="Nome do Estabelecimento" value={captalize(voucher?.partner.fantasyName ?? '')} width='w-2/3' />
-          <DetailsField label="CNPJ do Estabelecimento" value={voucher?.partner.cnpj ?? ''} width='w-1/3' />
+          <DetailsField label="Nome da Clínica" value={captalize(voucher?.partner.fantasyName ?? '')} width='w-2/3' />
+          <DetailsField label="CNPJ da Clínica" value={voucher?.partner.cnpj ?? ''} width='w-1/3' />
         </DetailsRow>
 
         <DetailsRow>
