@@ -47,12 +47,13 @@ export enum STATE {
 }
 
 export enum WAITING_TIME_IN_HOURS {
-  UMA_HORA = 1,
-  DUAS_HORAS = 2,
-  QUATRO_HORAS = 4,
-  DOZE_HORAS = 12,
-  UM_DIA = 24,
-  DOIS_DIAS = 48
+  // UMA_HORA = 1,
+  // DUAS_HORAS = 2,
+  // QUATRO_HORAS = 4,
+  // DOZE_HORAS = 12,
+  // UM_DIA = 24,
+  // DOIS_DIAS = 48
+  TRES_MESES = 2160,
 }
 
 export enum BALANCE_DISTRIBUTION_SETTING {

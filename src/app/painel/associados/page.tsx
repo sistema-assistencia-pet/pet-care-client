@@ -356,7 +356,6 @@ export default function MembersPage() {
     if (user?.roleId === ROLE.MASTER) {
       fetchClients()
     } else if (user?.roleId === ROLE.CLIENT_ADMIN) { // Se não, pré-seleciona cliente do usuário para criação de novos associados
-      console.log(user?.client?.id)
       setClientIdSelected(user.client?.id ?? '')
     }
   }, [user])

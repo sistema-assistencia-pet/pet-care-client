@@ -186,7 +186,6 @@ export default function RegisterUser() {
     if (user?.roleId === ROLE.MASTER) {
       fetchClients()
     } else if (user?.roleId === ROLE.CLIENT_ADMIN) { // Se não, pré-seleciona cliente do usuário para criação de novos usuários
-      console.log(user?.client?.id)
       createUserForm.setValue('clientId', user.client?.id ?? '')
     }
   }, [user])
